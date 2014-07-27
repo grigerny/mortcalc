@@ -16,7 +16,7 @@ html {
 .body-background{
 	margin-top:60px;
 	padding:40px;
-	background-color:rgba(0, 0, 0, 0.400);
+	background-color:rgba(0, 0, 0, 0.600);
 }
 
 .title-new{
@@ -34,6 +34,21 @@ html {
 }
 
 .original-submit{
+	display: block;
 	border:none;
-	background:none;
+	background:transparent;
+	text-decoration: none;
+	color:white;
+}
+
+.input-field{
+	background:rgba(242, 107, 121, 1.000) !important;
+	border:none !important;
+	text-decoration: none !important;
+	border-radius:none !important;
+	color:black !important;
+}
+
+.input-field:hover{
+	background-color:rgba(242, 175, 176, 1.000) !important;
 }

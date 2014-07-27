@@ -22,32 +22,32 @@
 			<div id="input-new">
 			What is your first name?
 			</div>
-			<%= f.text_field :name %>
+			<%= f.text_field :name, :class=>"input-field" %>
 			
 			<div id="input-new">
 			What is the price of the home you are buying?
 			</div>
-			<%= f.text_field :asking_price %>
+			<%= f.text_field :asking_price, :class=>"input-field" %>
 
 			<div id="input-new">
 			How much is the seller's concession? If unsure, leave blank.
 			</div>
-			<%= f.text_field :seller_con %>
+			<%= f.text_field :seller_con, :class=>"input-field" %>
 			
 			<div id="input-new">
 			What is the interest rate?
 			</div>
-			<%= f.text_field :rate %>
+			<%= f.text_field :rate, :class=>"input-field" %>
 			
 			<div id="input-new">
 			What are the estimated annual Real Estate Taxes?
 			</div>
-			<%= f.text_field :re_taxes %>
+			<%= f.text_field :re_taxes, :class=>"input-field" %>
 
 			  <div class="actions">
-				
+				<br>
 				<div class="btn btn-primary">
-			    <%= f.submit :class=> "original-submit" %>
+			    <%= f.submit "Submit", :class=> "original-submit" %>
 				</div>
 				
 			  </div>
