@@ -1,0 +1,32 @@
+<%= form_for(@home) do |f| %>
+  <% if @home.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@home.errors.count, "error") %> prohibited this home from being saved:</h2>
+
+      <ul>
+      <% @home.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f. label "Hello! What is your first name?" %>
+<%= f.text_field :name %><br>
+
+<%= f.label "What is the asking price of the home?" %>
+<%= f.text_field :asking_price %><br>
+
+<%= f.label "How much is the seller's concession?" %>
+<%= f.text_field :seller_con %><br>
+
+<%= f.label "What is the interest rate?" %>
+<%= f.text_field :rate %><br>
+
+<%= f.label "What are the estimated annual Real Estate Taxes?"%>
+<%= f.text_field :re_taxes %><br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<h1>OK <%= @home.name %>, here are your numbers!</h1><br>
+
+<% loan = (@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) * 0.965 %>
+<% i = (1 + @home.rate.to_f/100/12)**(12/12)-1 %>
+<% annuity = (1-(1/(1+i))**360)/i %>
+
+You told me the asking price is <%= number_to_currency(@home.asking_price.to_i) %>
+and the seller's concession is <%= number_to_currency(@home.asking_price.to_i * @home.seller_con.to_f/100) %><br>
+Therefore, your purchase contract will be for <%= number_to_currency(@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) %>
+<br><br>
+
+The maximum loan to value (LTV) you can take out with an FHA Loan is 96.50%. <br>
+Therefore your mortgage amount will be <%= number_to_currency((@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) * 0.965) %>
+
+<br><br>
+
+Based off of the interest rate of <%= @home.rate %> and a 30 year loan, your monthly mortgage payment will be
+
+<%= payment = number_to_currency(loan/annuity) %> <br><br>
+
+Other Expenses:<br>
+You told me the Real Estate taxes are: <%= number_to_currency(@home.re_taxes) %> per year<br>
+Based on US national average data, I have estimated your Homeowner's Insurance to be <%= hinsurance = number_to_currency(0.0035*loan) %> per year<br><br>
+
+Total:<br>
+Your total Mortgage Payment including Principle, Interest, Taxes and Insurance will be <b><%= number_to_currency((@home.re_taxes.to_i/12) + (0.0035*loan/12) + (loan/annuity)) %></b> per month<br><br>
+
+Can you Qualify?<br>
+In order to purchase this home, you will need to show income of <%= number_to_currency(((@home.re_taxes.to_i/12) + (0.0035*loan/12) + (loan/annuity)) / ( 0.43)) %> a month
+
+
+
+
+
+<br><br>
+
+<%= link_to 'Edit', edit_home_path(@home) %> |
+<%= link_to 'Back', homes_path %>
