@@ -11,22 +11,48 @@
     </div>
   <% end %>
 
-What is your first name?<br>
-<%= f.text_field :name %><br>
 
-What is the price of the home you are buying?<br>
-<%= f.text_field :asking_price %><br>
+<div class="row-fluid">
+	<div class="span3">
+		<!# This is an empty span4 space >
+		</div>
+		
+		<div class="span9">
+			
+			<div id="input-new">
+			What is your first name?
+			</div>
+			<%= f.text_field :name %>
+			
+			<div id="input-new">
+			What is the price of the home you are buying?
+			</div>
+			<%= f.text_field :asking_price %>
 
-How much is the seller's concession? If unsure, leave blank.<br>
-<%= f.text_field :seller_con %><br>
+			<div id="input-new">
+			How much is the seller's concession? If unsure, leave blank.
+			</div>
+			<%= f.text_field :seller_con %>
+			
+			<div id="input-new">
+			What is the interest rate?
+			</div>
+			<%= f.text_field :rate %>
+			
+			<div id="input-new">
+			What are the estimated annual Real Estate Taxes?
+			</div>
+			<%= f.text_field :re_taxes %>
 
-What is the interest rate?<br>
-<%= f.text_field :rate %><br>
+			  <div class="actions">
+				
+				<div class="btn btn-primary">
+			    <%= f.submit :class=> "original-submit" %>
+				</div>
+				
+			  </div>
+			<% end %>
+			</div>
+	</div>
 
-What are the estimated annual Real Estate Taxes?<br>
-<%= f.text_field :re_taxes %><br>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
