@@ -4,7 +4,8 @@
 
 .main{
 	font-family: 'Raleway', sans-serif;
-	height:1000px;
+	min-height:1500px;
+	height:100%;
 	background-image: image-url("mortcalc-background.jpg");
 	background-size:cover;
 }
@@ -51,4 +52,40 @@ html {
 
 .input-field:hover{
 	background-color:rgba(242, 175, 176, 1.000) !important;
+}
+
+.results-title{
+	color:white;
+	font-weight:bold;
+	text-align:center;
+	font-size:28px;
+	padding:20px;
+}
+
+.results-p1{
+	color:white;
+	margin-top:60px;
+	padding:40px;
+	background-color:rgba(87, 43, 117, 0.400);
+}
+
+.results-p2{
+	color:white;
+	margin-top:60px;
+	padding:40px;
+	background-color:rgba(195, 109, 96, 0.400);
+}
+
+.results-p3{
+	color:white;
+	margin-top:60px;
+	padding:40px;
+	background-color:rgba(113, 195, 188, 0.400);	
+}
+
+.results-p4{
+	color:white;
+	margin-top:60px;
+	padding:40px;
+	background-color:rgba(222, 199, 134, 0.400);
 }

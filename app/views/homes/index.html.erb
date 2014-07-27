@@ -1,4 +1,4 @@
-<center><h1>Welcome to Mohan's Mortgage Palace</h1></center>
+<center><h1>Welcome to My Mortgage Dashboard</h1></center>
 
 <table>
   <thead>
@@ -25,5 +25,9 @@
 
 <br>
 <center>
-<%= link_to 'Click to get started', new_home_path %>
+
+
+<%= link_to new_home_path, :class => "btn btn-primary btn-lg" do %>
+<%= 'New Client' %>
+<% end %>
 </center>
