@@ -10,24 +10,25 @@
   </thead>
 
   <tbody>
+	
+	<center>
+	<%= link_to new_home_path, :class => "btn btn-primary btn-lg" do %>
+	<%= 'New Client' %>
+	<% end %>
+	</center>
+	
+	<h2>All Clients</h2>
 
     <% @homes.each do |home| %>
       <tr>
-		<td>Asking Price:</td>
-		<td><%= home.asking_price %><br></td>
+		<td>Client:</td>
+		<td><%= home.name %></td>
         <td><%= link_to 'Show', home %></td>
         <td><%= link_to 'Edit', edit_home_path(home) %></td>
-        <td><%= link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<center>
-
-
-<%= link_to new_home_path, :class => "btn btn-primary btn-lg" do %>
-<%= 'New Client' %>
-<% end %>
-</center>
