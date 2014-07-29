@@ -4,21 +4,21 @@
 OK <%= @home.name %>, here are your numbers!<br>
 </div>
 
-<% loan = (@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) * 0.965 %>
+<% loan = (@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.965 %>
 <% i = (1 + @home.rate.to_f/100/12)**(12/12)-1 %>
 <% annuity = (1-(1/(1+i))**360)/i %>
 
 <div class="results-p1">
-You told me the asking price is <%= number_to_currency(@home.asking_price) %>
-and the seller's concession is <%= @home.seller_con %> which equates to <%= number_to_currency(@home.asking_price.to_i * @home.seller_con.to_f/100) %><br>
-Therefore, your purchase contract will be for <%= number_to_currency(@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) %>
+You told me the asking price is <%= number_to_currency(@home.asking_price.gsub(/\D/, '')) %>
+and the seller's concession is <%= @home.seller_con %> which equates to <%= number_to_currency(@home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_f/100) %><br>
+Therefore, your purchase contract will be for <%= number_to_currency(@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) %>
 </div>
 
 <div class="results-p2">
 Assuming you are applying for an FHA loan, the maximum you can borrow is 96.50% of the value. This is also known as the loan to value ratio. <br>
-So, if your purchase contract is <%= number_to_currency(@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) %>, and you can borrow 96.50% of that, you can mortgage up to <%= number_to_currency((@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) * 0.965) %>.<br><br>
+So, if your purchase contract is <%= number_to_currency(@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) %>, and you can borrow 96.50% of that, you can mortgage up to <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.965) %>.<br><br>
 
-Your minimum downpayment is <%= number_to_currency((@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) - ((@home.asking_price.to_i + @home.asking_price.to_i * @home.seller_con.to_i/100) * 0.965)) %>
+Your minimum downpayment is <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) - ((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.965)) %>
 </div>
 
 
