@@ -8,9 +8,11 @@
 OK <%= @home.name %>, here are your numbers!<br>
 </div>
 
-<% loan = (@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.965 %>
+<% loan = (@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97 %>
 <% i = (1 + interest_rate.to_f/100/12)**(12/12)-1 %>
 <% annuity = (1-(1/(1+i))**360)/i %>
+<%= pmi = (loan * 0.01)/12 %>
+
 
 <div class="results-p1">
 You told me the asking price is <%= number_to_currency(@home.asking_price.gsub(/\D/, '')) %>
@@ -20,11 +22,12 @@ Therefore, your purchase contract will be for <%= number_to_currency(@home.askin
 
 <div class="results-p2">
 Based on SONYMA Guidelines, you can borrow up to 97% of the value. This is also known as the loan to value ratio. <br>
-So, if your purchase contract is <%= number_to_currency(@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) %>, and you can borrow 97% of that, you can actually mortgage up to <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97) %>.<br><br>
+So, if your purchase contract is <%= number_to_currency(@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) %>, and you can borrow 97% of that, you can actually mortgage up to <%= loan_amount = number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97) %>.<br><br>
 
-Your minimum downpayment is <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) - ((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97)) %><br>
+Your minimum downpayment is <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) - ((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97)) %><br><br>
 
-With SONYMA'S Downpayment Assistance Loan Program (DALP), the state will assist you with 3% of the downpayment.
+With SONYMA'S Downpayment Assistance Loan Program (DALP), the state will assist you with 3% of the home purchase price (up to a maximum of $15,000). 
+
 </div>
 
 
@@ -33,12 +36,14 @@ Based off of the current SONYMA interest rate of <%= interest_rate %> and a 30 y
 
 <%= payment = number_to_currency(loan/annuity) %> <br><br>
 
-Other Expenses:<br>
+Other Housing Expenses:<br>
 You told me the Real Estate taxes are: <%= number_to_currency(@home.re_taxes) %> per year<br>
-Based on US national average data, I have estimated your Homeowner's Insurance to be <%= hinsurance = number_to_currency(0.0035*loan) %> per year<br><br>
+Based on US national average data, I have estimated your Homeowner's Insurance to be <%= hinsurance = number_to_currency(0.0035*loan) %> per year<br>
+PMI (Private Mortgage Insurance) is required for all loans that exceed 80% loan to value. The PMI for this loan is <%=  number_to_currency(((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97) * 0.01) %> per year
+<br><br>
 
 Total:<br>
-Your total Mortgage Payment including Principle, Interest, Taxes and Insurance will be <%= number_to_currency((@home.re_taxes.to_i/12) + (0.0035*loan/12) + (loan/annuity)) %> per month<br><br>
+Your total Mortgage Payment including Principle, Interest, Real Estate Tax, Homeowners Insurance and Private Mortgage Insurance will be <%= (number_to_currency((@home.re_taxes.to_i/12) + (0.0035*loan/12) + (pmi) + (loan/annuity))) %> per month<br><br>
 </div>
 
 <div class="results-p4">
