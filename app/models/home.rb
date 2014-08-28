@@ -7,4 +7,5 @@ class Home < ActiveRecord::Base
     self.asking_price.gsub(/\D/, '')
   end
   
+	
 end
