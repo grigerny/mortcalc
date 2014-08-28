@@ -19,15 +19,17 @@ Therefore, your purchase contract will be for <%= number_to_currency(@home.askin
 </div>
 
 <div class="results-p2">
-Assuming you are applying for an FHA loan, the maximum you can borrow is 96.50% of the value. This is also known as the loan to value ratio. <br>
-So, if your purchase contract is <%= number_to_currency(@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) %>, and you can borrow 96.50% of that, you can mortgage up to <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.965) %>.<br><br>
+Based on SONYMA Guidelines, you can borrow up to 97% of the value. This is also known as the loan to value ratio. <br>
+So, if your purchase contract is <%= number_to_currency(@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) %>, and you can borrow 97% of that, you can actually mortgage up to <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97) %>.<br><br>
 
-Your minimum downpayment is <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) - ((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.965)) %>
+Your minimum downpayment is <%= number_to_currency((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) - ((@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97)) %><br>
+
+With SONYMA'S Downpayment Assistance Loan Program (DALP), the state will assist you with 3% of the downpayment.
 </div>
 
 
 <div class="results-p3">
-Based off of the interest rate of <%= interest_rate %> and a 30 year loan, your monthly mortgage payment will be
+Based off of the current SONYMA interest rate of <%= interest_rate %> and a 30 year loan, your monthly mortgage payment will be
 
 <%= payment = number_to_currency(loan/annuity) %> <br><br>
 
@@ -41,7 +43,7 @@ Your total Mortgage Payment including Principle, Interest, Taxes and Insurance w
 
 <div class="results-p4">
 Can you Qualify?<br>
-In order to purchase this home, you will need to show income of <%= number_to_currency(((@home.re_taxes.to_i/12) + (0.0035*loan/12) + (loan/annuity)) / ( 0.43)) %> a month
+Check out all of SONYMA'S eligibility requirements <%= link_to "here",  "http://www.nyshcr.org/Topics/Home/Buyers/SONYMA/AchievingtheDreamProgramTermSheet.htm" %>
 </div>
 
 <br><br>

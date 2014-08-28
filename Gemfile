@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'protected_attributes'
 gem "twitter-bootstrap-rails"
 gem 'nokogiri'
+gem 'gravatar-ultimate'
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
