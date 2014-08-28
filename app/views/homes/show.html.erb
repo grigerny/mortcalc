@@ -2,16 +2,15 @@
 
 <div class="results-title">
 	
-
-	
 	
 OK <%= @home.name %>, here are your numbers!<br>
 </div>
 
+<% pmi = (loan * 0.01)/12 %>
 <% loan = (@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97 %>
 <% i = (1 + interest_rate.to_f/100/12)**(12/12)-1 %>
 <% annuity = (1-(1/(1+i))**360)/i %>
-<%= pmi = (loan * 0.01)/12 %>
+
 
 
 <div class="results-p1">
