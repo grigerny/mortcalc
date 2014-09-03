@@ -8,7 +8,7 @@ OK <%= @home.name %>, here are your numbers!<br>
 
 
 <% loan = (@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97 %>
-<% i = (1 + interest_rate.to_f/100/12)**(12/12)-1 %>
+<% i = (1 + 4.25.to_f/100/12)**(12/12)-1 %>
 <% annuity = (1-(1/(1+i))**360)/i %>
 <% pmi = (loan * 0.01)/12 %>
 
@@ -32,7 +32,7 @@ With SONYMA'S Downpayment Assistance Loan Program (DALP), the state will assist 
 
 
 <div class="results-p3">
-Based off of the current SONYMA interest rate of <%= interest_rate %> and a 30 year loan, your monthly mortgage payment will be
+Based off of the current SONYMA interest rate of 4.25% and a 30 year loan, your monthly mortgage payment will be
 
 <%= payment = number_to_currency(loan/annuity) %> <br><br>
 
