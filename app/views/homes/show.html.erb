@@ -35,7 +35,8 @@ Based off of the current SONYMA interest rate of 4.25% and a 30 year loan, your 
 
 <%= payment = number_to_currency(loan/annuity) %> <br><br>
 
-You told me your income is <%= number_to_currency(@home.income) %> per year. Your income qualifies for NY State's Achieve The Dream Program for homes being purchased in New York City. For other neighborhoods and more details on income requirements <%= link_to "click here", "http://www.nyshcr.org/Topics/Home/Buyers/IncomeLimits/AchievingtheDreamProgram.htm"%>
+You told me your income is <%= number_to_currency(@home.income) %> per year.<br><br>
+Your income qualifies for NY State's Achieve The Dream Program for homes being purchased in New York City. For other neighborhoods and more details on income requirements <%= link_to "click here", "http://www.nyshcr.org/Topics/Home/Buyers/IncomeLimits/AchievingtheDreamProgram.htm"%><br><br>
 
 Other Housing Expenses:<br>
 You told me the Real Estate taxes are: <%= number_to_currency(@home.re_taxes) %> per year<br>
