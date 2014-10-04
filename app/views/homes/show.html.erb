@@ -7,15 +7,10 @@
 OK <%= @home.name %>, here are your numbers!<br>
 </div>
 
-Your income is:
-	
-<%= number_to_currency(@home.income) %> per year
-
 <% loan = (@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97 %>
 <% i = (1 + 4.25.to_f/100/12)**(12/12)-1 %>
 <% annuity = (1-(1/(1+i))**360)/i %>
 <% pmi = (loan * 0.01)/12 %>
-
 
 
 <div class="results-p1">
@@ -39,6 +34,8 @@ With SONYMA'S Downpayment Assistance Loan Program (DALP), the state will assist 
 Based off of the current SONYMA interest rate of 4.25% and a 30 year loan, your monthly mortgage payment will be
 
 <%= payment = number_to_currency(loan/annuity) %> <br><br>
+
+You told me your income is <%= number_to_currency(@home.income) %> per year. Your income qualifies for NY State's Achieve The Dream Program for homes being purchased in New York City. For other neighborhoods and more details on income requirements <%= link_to "click here", "http://www.nyshcr.org/Topics/Home/Buyers/IncomeLimits/AchievingtheDreamProgram.htm"%>
 
 Other Housing Expenses:<br>
 You told me the Real Estate taxes are: <%= number_to_currency(@home.re_taxes) %> per year<br>
