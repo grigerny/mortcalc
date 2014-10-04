@@ -27,7 +27,8 @@ class HomesController < ApplicationController
     @home = Home.new(home_params)
 
     respond_to do |format|
-      if @home.save
+      if 
+        @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
         format.json { render action: 'show', status: :created, location: @home }
       else

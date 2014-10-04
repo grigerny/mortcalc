@@ -3,9 +3,13 @@
 <div class="results-title">
 	
 	
+	
 OK <%= @home.name %>, here are your numbers!<br>
 </div>
 
+Your income is:
+	
+<%= number_to_currency(@home.income) %> per year
 
 <% loan = (@home.asking_price.gsub(/\D/, '').to_i + @home.asking_price.gsub(/\D/, '').to_i * @home.seller_con.to_i/100) * 0.97 %>
 <% i = (1 + 4.25.to_f/100/12)**(12/12)-1 %>
