@@ -10,6 +10,8 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
+    @home = Home.find(params[:id])
+    @regions = Region.all
   end
 
   # GET /homes/new
@@ -25,14 +27,16 @@ class HomesController < ApplicationController
   # POST /homes.json
   def create
     @home = Home.new(home_params)
+    @regions = Region.all
 
     respond_to do |format|
-      if 
+      if
+        @home.income.to_i <= @home.region.income_limit.to_i
         @home.save
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
         format.json { render action: 'show', status: :created, location: @home }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', notice: 'Your income is not within program guidelines'  }
         format.json { render json: @home.errors, status: :unprocessable_entity }
       end
     end
