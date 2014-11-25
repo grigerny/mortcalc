@@ -11,30 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117215302) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "homes", force: true do |t|
-    t.string   "asking_price"
-    t.string   "seller_con"
-    t.string   "contract_price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "rate"
-    t.string   "re_taxes"
-    t.string   "ho_insurance"
-    t.string   "income"
-    t.integer  "region_id"
-  end
-
-  create_table "regions", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "income_limit"
-  end
 
 end
